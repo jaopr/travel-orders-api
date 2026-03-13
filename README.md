@@ -2,7 +2,7 @@
 
 Microsserviço em Laravel para gerenciamento de pedidos de viagem corporativa.
 
-# Tecnologias
+## Tecnologias
 
 - PHP 8.3
 - Laravel 11
@@ -10,42 +10,42 @@ Microsserviço em Laravel para gerenciamento de pedidos de viagem corporativa.
 - JWT Authentication (tymon/jwt-auth)
 - Docker + Docker Compose
 - PHPUnit
+  
+---
 
-# Requisitos
+## Requisitos
 
 - [Docker](https://www.docker.com/products/docker-desktop/)
 - [Git](https://git-scm.com/)
 
---
+## Instalação e execução
 
-# Instalação e execução
-
-# 1 - Clone o repositório
+### 1 - Clone o repositório
 
 bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
 
-# 2 - Suba os containers
+### 2 - Suba os containers
 
 bash
 docker compose up -d --build
 
 
-# 3 - Instale as dependências
+### 3 - Instale as dependências
 bash
 docker exec travel_app composer install
 
 
-# 4 - Configure o ambiente
+### 4 - Configure o ambiente
 bash
 docker exec travel_app cp .env.example .env
 docker exec travel_app php artisan key:generate
 docker exec travel_app php artisan jwt:secret
 
 
-# 5 - Configure o banco de dados
+### 5 - Configure o banco de dados
 
 No arquivo `.env`, verifique se as variáveis estão assim:
 env
@@ -57,28 +57,28 @@ DB_USERNAME=travel_user
 DB_PASSWORD=travel123
 
 
-# 6 - Rode as migrations
+### 6 - Rode as migrations
 bash
 docker exec travel_app php artisan migrate
 
 
-# 7 - Acesse a API
+### 7 - Acesse a API
 
 A API estará disponível em: **http://localhost:8000**
 
 --
 
-# Autenticação
+## Autenticação
 
 A API usa JWT. Para acessar as rotas protegidas, inclua o header:
 
 Authorization: Bearer {token}
 
---
+---
 
-# Endpoints
+## Endpoints
 
-# Públicos
+### Públicos
 
  Método: POST
  Rota: /api/register
@@ -88,7 +88,7 @@ Authorization: Bearer {token}
  Rota: /api/login
  Descrição: Login 
 
-# Protegidos (requer token)
+### Protegidos (requer token)
 
  Método: POST
  Rota: /api/logout
@@ -114,7 +114,7 @@ Authorization: Bearer {token}
  Rota: /api/travel-orders/{id}/status
  Descrição: Atualizar status
 
-# Filtros disponíveis no GET /api/travel-orders
+### Filtros disponíveis no GET /api/travel-orders
 
 Parâmetro: status
 Exemplo: ?status=approved
@@ -134,9 +134,9 @@ Descrição: Pedidos até
 
 ---
 
-# Exemplos de uso
+## Exemplos de uso
 
-# Registrar usuário
+### Registrar usuário
 json
 POST /api/register
 {
@@ -147,7 +147,7 @@ POST /api/register
 }
 
 
-# Criar pedido de viagem
+### Criar pedido de viagem
 json
 POST /api/travel-orders
 {
@@ -158,7 +158,7 @@ POST /api/travel-orders
 }
 
 
-# Atualizar status
+### Atualizar status
 json
 PATCH /api/travel-orders/1/status
 {
@@ -167,7 +167,7 @@ PATCH /api/travel-orders/1/status
 
 ---
 
-# Regras de negócio
+## Regras de negócio
 
 - Todo pedido é criado com status `requested`
 - O dono do pedido **não pode** alterar o próprio status
@@ -177,13 +177,13 @@ PATCH /api/travel-orders/1/status
 
 ---
 
-# Executar os testes
+## Executar os testes
 bash
 docker exec travel_app php artisan test
 
 ---
 
-# Estrutura do projeto
+## Estrutura do projeto
 
 app/
 ├── Events/
