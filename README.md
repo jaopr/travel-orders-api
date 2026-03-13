@@ -177,6 +177,20 @@ PATCH /api/travel-orders/1/status
 
 ---
 
+##  Collection Postman
+
+Importe o arquivo `API Traver Order.postman_collection.json` no Postman para testar todos os endpoints já configurados.
+
+### Variáveis de ambiente sugeridas
+
+Variável: base_url
+Valor: http://localhost:8000
+
+Variável: token
+Valor: preencher após login
+
+---
+
 ## Executar os testes
 bash
 docker exec travel_app php artisan test
